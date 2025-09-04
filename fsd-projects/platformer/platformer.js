@@ -31,20 +31,20 @@ $(function () {
 
 
     // TODO 2 - Create Platforms
-
-
-
+    createPlatform(50, 670, 100, 20, "#279FF5");
+    createPlatform(400, 650, 100, 20, "#279FF5");
+    createPlatform(255, 325, 25, 125, "#b32020ff");
+    createPlatform(255, 550, 25, 125, "#b32020f");
 
     // TODO 3 - Create Collectables
-
+    createCollectable("diamond", 430, 570, 8, 1);
 
 
     
     // TODO 4 - Create Cannons
+    createCannon("left", 650, 300, 1000)
+    createCannon("top", 327, 1000)
 
-
-    
-    
     //////////////////////////////////
     // ONLY CHANGE ABOVE THIS POINT //
     //////////////////////////////////
