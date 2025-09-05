@@ -33,17 +33,33 @@ $(function () {
     // TODO 2 - Create Platforms
     createPlatform(50, 670, 100, 20, "#279FF5");
     createPlatform(400, 650, 100, 20, "#279FF5");
-    createPlatform(255, 325, 25, 125, "#b32020ff");
+    createPlatform(255, 75, 25, 125, "#b32020ff");
+    createPlatform(255, 305, 25, 145, "#b32020ff");
     createPlatform(255, 550, 25, 125, "#b32020f");
+    createPlatform(706, 540, 30, 15, "#279FF5");
+    createPlatform(1100, 650, 100, 20, "#279FF5");
+    createPlatform(1175, 525, 100, 20, "#279FF5");
+    createPlatform(1100, 400, 100, 20, "#279FF5");
+    createPlatform(1175, 275, 100, 20, "#279FF5");
+    createPlatform(980, 200, 30, 20, "#279FF5");
+    createPlatform(620, 275, 200, 20, "#279FF5");
+    createPlatform(425, 430, 100, 20, "#279FF5");
+    createPlatform(100, 335, 100, 20, "#279FF5");
+    createPlatform(100, 0, 5, 335, "#279FF5");
 
     // TODO 3 - Create Collectables
-    createCollectable("diamond", 430, 570, 8, 1);
-
+    createCollectable("mc_iron", 247, 460, 3, 1);
+    createCollectable("mc_gold", 703, 450, 1, 1);
+    createCollectable("mc_emerald", 1230, 450, 1, 1);
+    createCollectable("mc_diamond", 975, 120, 1, 1);
+    createCollectable("mc_netherite", 135, 250, 1, 1);
 
     
     // TODO 4 - Create Cannons
-    createCannon("left", 650, 300, 1000)
-    createCannon("top", 327, 1000)
+    createCannon("left", 650, 100, 1000);
+    createCannon("top", 327, 1000);
+    createCannon("top", 780, 850);
+    createCannon("right", 200, 2000);
 
     //////////////////////////////////
     // ONLY CHANGE ABOVE THIS POINT //
