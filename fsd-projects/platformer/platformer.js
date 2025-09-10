@@ -46,6 +46,8 @@ $(function () {
     createPlatform(425, 430, 100, 20, "#279FF5");
     createPlatform(100, 335, 100, 20, "#279FF5");
     createPlatform(100, 0, 5, 335, "#279FF5");
+    createPlatform(310, 450, 2, 2, "#523e9cff");
+    createPlatform(575, 350, 2, 30, "#523e9cff");
 
     // TODO 3 - Create Collectables
     createCollectable("mc_iron", 247, 460, 3, 1);
