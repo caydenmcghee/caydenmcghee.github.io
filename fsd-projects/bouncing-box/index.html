@@ -6,6 +6,10 @@
     <script src="jquery.min.js"></script>
     <style>
 
+      h1 {
+        color: blue
+      }
+
       body {
         background-image: url("black-bg.jpg");
         background-color: #cccccc;
@@ -13,7 +17,6 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        text: "Misclicks: " + misClick + 1, 100, 100
       }
 
       .box {
@@ -28,7 +31,7 @@
         top: 100px;
         /* Change me! */
         left: 0px;
-        background-image: url("dvd.png"); 
+        background-image: url("image.png"); 
       }
 
       .board {
@@ -40,8 +43,7 @@
 
   <body class="board">
     <!-- HTML for the box -->
-    <div class="box">?</div>
-
+    <div class="box">?</div>  
 
     <script>
       (function () {
@@ -86,9 +88,9 @@
         // TODO 2 - Variable declarations
         var positionX = 0;
         var points = 1;
-        var speed ;
+        var speed = 5;
         var positionY = 0;        
-        var speedY;
+        var speedY = 5;
         var boardHeight = jQuery(window).height();
         var randNumX;
         var randNumY;  
@@ -127,8 +129,8 @@
           positionY = 0;
           changeBoxText(points);
           points++;
-          speed = 1.9 * points;
-          speedY = 1.9 * points;
+          speed = 1.5 * points + 5;
+          speedY = 1.5 * points + 5;
 
           randNumX = Math.random() * boardWidth;
           randNumY = Math.random() * boardHeight;
@@ -152,8 +154,8 @@
         }
 
         function endGame() {
-          speed = 10
-          speedY = 10
+          speed = 0
+          speedY = 0
           points = 0
           setTimeout(() => {
             clearInterval(interval);
