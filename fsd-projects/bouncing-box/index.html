@@ -30,6 +30,12 @@
     <!-- HTML for the box -->
     <div class="box">?</div>
 
+    <style>
+      .background {
+        background-image: url(https://c4.wallpaperflare.com/wallpaper/369/489/215/gradient-soft-gradient-simple-minimalism-wallpaper-thumb.jpg)
+      }
+    </style>
+
     <script>
       (function () {
         "use strict";
@@ -53,6 +59,7 @@
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
+        board.on("click", handleMisClick);
 
         // moves the Box to a new position on the screen along the X-Axis
         function moveBoxTo(newPositionX, newPositionY) {
@@ -99,8 +106,6 @@
           } else if (positionY < 0) {
             speedY *= -1;
           }
-        
-        }
 
         /**
          * This Function will be called each time the box is clicked.
