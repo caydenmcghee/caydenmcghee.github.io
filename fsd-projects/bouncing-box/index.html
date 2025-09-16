@@ -66,10 +66,11 @@
     <h1 class="unselectable-text">Click DVD logo to gain points!</h1>
     <h2 id="heading" class="unselectable-text"></h2>
     <h2 id="heading2" class="unselectable-text"></h2>
-    <h3 class="unselectable-text">(If box gets stuck or dissappears, please refresh page.)</h3>
+    <h3 class="unselectable-text">(If box gets stuck or disappears, please refresh page.)</h3>
 
     <h1 style="font-size: 75px" class="unselectable-text centered" id="gameOver"></h1>
     <h2 class="unselectable-text centered" id="restart">Click to restart.</h2>
+    <h1 style="font-size: 100px" class="unselectable-text centered" id="67"></h1>
 
     <script>
       (function () {
@@ -91,7 +92,7 @@
         });
 
         // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 5);
+        setInterval(update, 20);
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
@@ -145,6 +146,7 @@
 
           misClick >= 10 ? document.getElementById("gameOver").innerHTML = "Game Over!" : document.getElementById("gameOver").innerHTML = ""
           misClick >= 10 ? document.getElementById("restart").innerHTML = "Click DVD Logo to Restart." : document.getElementById("restart").innerHTML = ""
+          misClick === 67 ? document.getElementById("67").innerHTML = "SIX SEVENNNNNNN" : document.getElementById("67").innerHTML = ""
 
           document.getElementById("heading").innerHTML = "You have " + points + " point(s)!";
           document.getElementById("heading2").innerHTML = "You have " + misClick + " misclicks, get 10 in a row and you lose!";
@@ -162,8 +164,8 @@
           positionY = 0;
           changeBoxText(points);
           points++;
-          speed = 1.03 * points + 1;
-          speedY = 1.03 * points + 1;
+          speed = 1.1 * points + 2;
+          speedY = 1.1 * points + 2;
 
           randNumX = Math.random() * boardWidth;
           randNumY = Math.random() * boardHeight;
