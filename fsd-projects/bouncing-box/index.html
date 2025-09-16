@@ -7,7 +7,27 @@
     <style>
 
       h1 {
-        color: blue
+        color: rgb(255, 255, 255)
+      }
+
+      h2 {
+        color: rgb(255, 255, 255)
+      }
+
+      h3 {
+        color: rgb(255, 255, 255)
+      }
+
+      .centered {
+        text-align: center
+      }
+      .unselectable-text {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none; 
+      -khtml-user-select: none; 
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -user-select: none; 
       }
 
       body {
@@ -20,18 +40,15 @@
       }
 
       .box {
-        width: 70px;
-        height: 70px;
-        background-color: rgb(255, 255, 255);
-        font-size: 300%;
-        text-align: center;
+        width: 140px;
+        height: 140px;
         user-select: none;
-        display: block;
         position: absolute;
-        top: 100px;
-        /* Change me! */
-        left: 0px;
-        background-image: url("image.png"); 
+        background-image: url("dvd-xxl.png");
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
       }
 
       .board {
@@ -43,7 +60,15 @@
 
   <body class="board">
     <!-- HTML for the box -->
-    <div class="box">?</div>  
+    <div class="box"> </div>  
+
+    <h1 class="unselectable-text">Click DVD logo to gain points!</h1>
+    <h2 id="heading" class="unselectable-text"></h2>
+    <h2 id="heading2" class="unselectable-text"></h2>
+    <h3 class="unselectable-text">(If box gets stuck or dissappears, please refresh page.)</h3>
+
+    <h1 style="font-size: 75px" class="unselectable-text centered" id="gameOver"></h1>
+    <h2 class="unselectable-text centered" id="restart">Click to restart.</h2>
 
     <script>
       (function () {
@@ -53,6 +78,7 @@
         //////////////////////////////////////////////////////////////////
         /////////////////// SETUP DO NOT DELETE //////////////////////////
         //////////////////////////////////////////////////////////////////
+
 
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
@@ -64,7 +90,7 @@
         });
 
         // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 50);
+        setInterval(update, 5);
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
@@ -77,8 +103,8 @@
         }
 
         // changes the text displayed on the Box
-        function changeBoxText(newText) {
-          box.text(newText);
+        function changeBoxText() {
+          box.text();
         }
 
         //////////////////////////////////////////////////////////////////
@@ -87,10 +113,10 @@
 
         // TODO 2 - Variable declarations
         var positionX = 0;
-        var points = 1;
-        var speed = 5;
+        var points = 0;
+        var speed = 2;
         var positionY = 0;        
-        var speedY = 5;
+        var speedY = 2;
         var boardHeight = jQuery(window).height();
         var randNumX;
         var randNumY;  
@@ -115,6 +141,12 @@
           } else if (positionY < 0) {
             speedY *= -1;
           }
+
+          misClick >= 10 ? document.getElementById("gameOver").innerHTML = "Game Over!" : document.getElementById("gameOver").innerHTML = ""
+          misClick >= 10 ? document.getElementById("restart").innerHTML = "Click to Restart." : document.getElementById("restart").innerHTML = ""
+
+          document.getElementById("heading").innerHTML = "You have " + points + " point(s)!";
+          document.getElementById("heading2").innerHTML = "You have " + misClick + " misclicks, get 10 in a row and you lose!";
         }
 
         /**
@@ -129,8 +161,8 @@
           positionY = 0;
           changeBoxText(points);
           points++;
-          speed = 1.5 * points + 5;
-          speedY = 1.5 * points + 5;
+          speed = 1.25 * points + 2;
+          speedY = 1.25 * points + 2;
 
           randNumX = Math.random() * boardWidth;
           randNumY = Math.random() * boardHeight;
@@ -142,7 +174,11 @@
             speedY *= -1;
           }
 
-          misClick = 0
+          misClick = -1
+
+          if (misClick === 10) {
+            document.getElementById("gameOver").innerHTML = "Game Over!";
+          }
         }
 
         function handleMisClick() {
