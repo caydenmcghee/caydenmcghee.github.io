@@ -143,7 +143,7 @@
           }
 
           misClick >= 10 ? document.getElementById("gameOver").innerHTML = "Game Over!" : document.getElementById("gameOver").innerHTML = ""
-          misClick >= 10 ? document.getElementById("restart").innerHTML = "Click to Restart." : document.getElementById("restart").innerHTML = ""
+          misClick >= 10 ? document.getElementById("restart").innerHTML = "Click DVD Logo to Restart." : document.getElementById("restart").innerHTML = ""
 
           document.getElementById("heading").innerHTML = "You have " + points + " point(s)!";
           document.getElementById("heading2").innerHTML = "You have " + misClick + " misclicks, get 10 in a row and you lose!";
@@ -161,8 +161,8 @@
           positionY = 0;
           changeBoxText(points);
           points++;
-          speed = 1.25 * points + 2;
-          speedY = 1.25 * points + 2;
+          speed = 1.1 * points + 2;
+          speedY = 1.1 * points + 2;
 
           randNumX = Math.random() * boardWidth;
           randNumY = Math.random() * boardHeight;
