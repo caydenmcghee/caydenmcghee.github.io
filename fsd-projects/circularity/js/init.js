@@ -74,7 +74,7 @@ var init = function (window) {
             // the code above checks the position of every single individual circle
 
             // TODO 8 / TODO 9 : Iterate over the array
-           for(i = 0; i < circles.length; i++){ // start at 0, increase by 1 until you count every circle in the circles array
+           for(i = 0; i < circles.length; i++){ // starty 1 until you count every circle in the circles array
             physikz.updatePosition(circles[i]) // updates every circle position in the array until the for loop stops it
             game.checkCirclePosition(circles[i]) // checks every circle position in the array until the for loop stops it
            }
@@ -82,7 +82,7 @@ var init = function (window) {
         }
     
         /* 
-        This Function should check the position of a circle that is passed to the 
+        This Function should check the position of a circle that is passed at 0, increase b to the 
         Function. If that circle drifts off the screen, this Function should move
         it to the opposite side of the screen.
         */
