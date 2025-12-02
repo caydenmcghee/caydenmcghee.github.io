@@ -30,6 +30,7 @@ var background = function (window) {
         //////////////////////////////////////////////////////////////////
         // TODO (several):
         var tree;
+        var buildings = [];
       
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -58,7 +59,14 @@ var background = function (window) {
             background.addChild(moon); //adds the moon to the background container
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            
+            for (var i = 0; i < 10; ++i) { //creates buildings
+                var buildingHeight = Math.floor(Math.random() * 400); //creates and stores a value for the buildings height
+                var building = draw.rect(75, buildingHeight, "#c88ffdff", "Black", 1); //draws the building and its attributes/specifications
+                building.x = 200 * i; //determines building horizontal position
+                building.y = groundY - buildingHeight; //determines building vertical position
+                background.addChild(building); //adds building to background container
+                buildings.push(building); //pushing building to the array to be stored
+            }
             
             // TODO 3: Part 1 - Add a tree
             tree = draw.bitmap("img/tree.png"); //creates a bitmap object using the tree image and stores it in the variable tree
@@ -86,7 +94,13 @@ var background = function (window) {
             }
             
             // TODO 4: Part 2 - Parallax
-            
+            for (var i = 0; i < buildings.length; i++){
+                    var building = buildings[i]; //takes an index from the buildings array and stores it in the variable building
+                    building.x -= 2; //takes x value from building and subtracts a value constantly to make it move
+                    if (building.x < -200){ //checks if building has gone off left side of sceen
+                        building.x = canvas.width //if it has, brings it back to right side of screen
+                    }
+                }   
 
         } // end of update function - DO NOT DELETE
         
