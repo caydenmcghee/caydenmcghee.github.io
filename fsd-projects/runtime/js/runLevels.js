@@ -18,19 +18,21 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createObstacle(x, y, damage){
-      var hitZoneSize = 25; //sets the size of the obstacle's collision area
+    function createObstacle(x, y, damage, hzSize, image, offsetX, offsetY, scaleX, scaleY, rotation){
+      var hitZoneSize = hzSize; //sets the size of the obstacle's collision area
       var damageFromObstacle = damage; //sets the obstacles damage
       var obstacleHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); //creates the obstacle hitzone with the size and damage attatched to it
       obstacleHitZone.x = x; //sets the obstacles x position
       obstacleHitZone.y = y; //sets the obstacles y position
       game.addGameItem(obstacleHitZone); //adds obstacle to the game
-      var obstacleImage = draw.bitmap("img/sawblade.png"); //draws sawblade as a bitmap and stores it to obstacleImage
+      var obstacleImage = draw.bitmap(image); //draws sawblade as a bitmap and stores it to obstacleImage
       obstacleHitZone.addChild(obstacleImage); //takes obstacleImage and adds it as a child to hitzone
-      obstacleImage.x = -25; //offsets the image's sprite horizontally towards the hitzone
-      obstacleImage.y = -25; //offsets the image's sprite vertically towards the hitzone
+      obstacleImage.x = offsetX; //offsets the image's sprite horizontally towards the hitzone
+      obstacleImage.y = offsetY; //offsets the image's sprite vertically towards the hitzone
+      obstacleImage.scaleX = scaleX;
+      obstacleImage.scaleY = scaleY;
 
-      obstacleHitZone.rotationalVelocity = 25;
+      obstacleHitZone.rotationalVelocity = rotation;
     }
     
     function createEnemy(x, y){
@@ -76,10 +78,6 @@ var runLevels = function (window) {
         reward.fadeOut() //reward fade out animation
       };
     }
-    
-    createReward(1000, groundY - 75)
-    createReward(1200, groundY - 75)
-    createReward(1500, groundY - 100)
 
     function createLevelMarker(x, y){
       var levelMarker = game.createGameItem("level", 25); //creates an item with type "level" and a hitzone of 25, and stores that in the levelMarker variable
@@ -101,8 +99,6 @@ var runLevels = function (window) {
       };
     }
 
-    createLevelMarker(2300, groundY - 75);
-
     function startLevel() {
       // TODO 13 goes below here
       var level = levelData[currentLevel]; //fetches the current level from the levelData array and stores it into the level variable
@@ -112,11 +108,19 @@ var runLevels = function (window) {
         var element = levelObjects[i];
 
         if(element.type === "obstacle"){
-          createObstacle(element.x, element.y, element.damage);
+          createObstacle(element.x, element.y, element.damage, element.hzSize, element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.rotation);
         }
 
         if(element.type === "enemy"){
           createEnemy(element.x, element.y);
+        }
+
+        if(element.type === "reward"){
+          createReward(element.x, element.y);
+        }
+
+        if(element.type === "levelmarker"){
+          createLevelMarker(element.x, element.y);
         }
       }
 
