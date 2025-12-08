@@ -18,7 +18,7 @@ var runLevels = function (window) {
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createObstacle(x, y, damage, hzSize, image, offsetX, offsetY, scaleX, scaleY, rotation){
+    function createObstacle(x, y, damage, hzSize, image, offsetX, offsetY, scaleX, scaleY, speed, rotation){
       var hitZoneSize = hzSize; //sets the size of the obstacle's collision area
       var damageFromObstacle = damage; //sets the obstacles damage
       var obstacleHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); //creates the obstacle hitzone with the size and damage attatched to it
@@ -31,6 +31,7 @@ var runLevels = function (window) {
       obstacleImage.y = offsetY; //offsets the image's sprite vertically towards the hitzone
       obstacleImage.scaleX = scaleX;
       obstacleImage.scaleY = scaleY;
+      obstacleHitZone.velocityX = speed
 
       obstacleHitZone.rotationalVelocity = rotation;
     }
@@ -114,7 +115,7 @@ var runLevels = function (window) {
         var element = levelObjects[i];
 
         if(element.type === "obstacle"){
-          createObstacle(element.x, element.y, element.damage, element.hzSize, element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.rotation);
+          createObstacle(element.x, element.y, element.damage, element.hzSize, element.image, element.offsetX, element.offsetY, element.scaleX, element.scaleY, element.speed, element.rotation);
         }
 
         if(element.type === "enemy"){
