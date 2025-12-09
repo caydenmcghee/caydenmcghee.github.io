@@ -43,12 +43,21 @@ var background = function (window) {
             // var backgroundFill = draw.bitmap(canvasWidth,groundY,'#2e0147ff'); //draws a rectangle and stores it inside backgroundFill
             //background.addChild(backgroundFill); //adds the background fill to the background object
 
-            var backgroundImage = draw.bitmap("img/hills.webp");
-            backgroundImage.x = 0;
-            backgroundImage.y = 0;
-            backgroundImage.scaleX = 3.2;
-            backgroundImage.scaleY = 1.52;            
-            background.addChild(backgroundImage);
+            //if (currentLevel === 0){
+                var backgroundImage = draw.bitmap("img/hills.webp");
+                backgroundImage.x = 0;
+                backgroundImage.y = 0;
+                backgroundImage.scaleX = 3.2;
+                backgroundImage.scaleY = 1.52;            
+                background.addChild(backgroundImage);
+            /*} else if (currentLevel === 1){
+                backgroundImage = draw.bitmap("img/castlewalls.jpg");
+                backgroundImage.x = 0;
+                backgroundImage.y = 0;
+                backgroundImage.scaleX = 3.2;
+                backgroundImage.scaleY = 2;            
+                background.addChild(backgroundImage);
+            }*/
             
             // TODO 2: - Add a moon and starfield
             /*
