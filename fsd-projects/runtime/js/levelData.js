@@ -32,7 +32,7 @@ var makeLevelData = function (window) {
           { type: "reward", x: 1000, y: groundY - 90, hzSize: 25, image: "img/coins.png", offsetX: -35, offsetY: -35, scaleX: 0.15, scaleY: 0.15, score: 200, health: 5 },
           { type: "reward", x: 1300, y: groundY - 90, hzSize: 25, image: "img/coins.png", offsetX: -35, offsetY: -35, scaleX: 0.15, scaleY: 0.15, score: 200, health: 5 },
           { type: "reward", x: 1900, y: groundY - 140, score: 200, health: 5, hzSize: 25, image: "img/coins.png", offsetX: -35, offsetY: -35, scaleX: 0.15, scaleY: 0.15 },
-          { type: "levelmarker", x: 2575, y: groundY - 75, health: 100, hzSize: 25, image: "img/door.png", offsetX: -110, offsetY: -110, scaleX: 0.6, scaleY: 0.6, speed: 2},
+          { type: "levelmarker", x: 2575, y: groundY - 75, health: 0, hzSize: 25, image: "img/door.png", offsetX: -110, offsetY: -110, scaleX: 0.6, scaleY: 0.6, speed: 2},
           
         ],
       },
@@ -52,9 +52,9 @@ var makeLevelData = function (window) {
           { type: "enemy", x: 2100, y: groundY - 50, damage: 10, score: 250, hzSize: 25, image: "img/knight.png", offsetX: -50, offsetY: -80, scaleX: 0.25, scaleY: 0.25, speed: 2 },
           { type: "enemy", x: 2300, y: groundY - 50, damage: 15, score: 350, hzSize: 25, image: "img/jester.png", offsetX: -60, offsetY: -55, scaleX: 0.15, scaleY: 0.15, speed: 2 },
           { type: "enemy", x: 2600, y: groundY - 50, damage: 999, score: 1000, hzSize: 25, image: "img/king.png", offsetX: -140, offsetY: -190, scaleX: 1.2, scaleY: 1.2, speed: 2 },
-          { type: "reward", x: 1000, y: groundY - 90, hzSize: 25, image: "img/gems.png", offsetX: -50, offsetY: -45, scaleX: 0.4, scaleY: 0.35, score: 500, health: 10 },
-          { type: "reward", x: 1400, y: groundY - 90, hzSize: 25, image: "img/gems.png", offsetX: -50, offsetY: -45, scaleX: 0.4, scaleY: 0.35, score: 500, health: 10 },
-          { type: "reward", x: 1800, y: groundY - 90, hzSize: 25, image: "img/gems.png", offsetX: -50, offsetY: -45, scaleX: 0.4, scaleY: 0.35, score: 500, health: 10 },
+          { type: "reward", x: 1000, y: groundY - 90, hzSize: 25, image: "img/gems.png", offsetX: -50, offsetY: -45, scaleX: 0.4, scaleY: 0.35, score: 500, health: 5 },
+          { type: "reward", x: 1400, y: groundY - 90, hzSize: 25, image: "img/ham.png", offsetX: -35, offsetY: -30, scaleX: 0.15, scaleY: 0.15, score: 500, health: 35 },
+          { type: "reward", x: 1800, y: groundY - 90, hzSize: 25, image: "img/gems.png", offsetX: -50, offsetY: -45, scaleX: 0.4, scaleY: 0.35, score: 500, health: 5 },
         ],
       },
     ];
